@@ -354,7 +354,7 @@ $.jgrid.extend({
 				} catch (egv) {
 					gv = n.displayValue;
 				}
-				
+
 				var title = n.titleValue == null ? '' : n.titleValue;
 				str += "<tr id=\""+hid+"\"" +(grp.groupCollapse && n.idx>0 ? " style=\"display:none;\" " : " ") + "role=\"row\" class=\"ui-widget-content jqgroup ui-row-"+$t.p.direction+" "+clid+"\" title=\"" + title + "\"><td style=\"padding-left:"+(n.idx * 12) + "px;"+"\"";
 				var grpTextStr = $.isFunction(grp.groupText[n.idx]) ?
