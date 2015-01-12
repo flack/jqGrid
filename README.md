@@ -29,10 +29,8 @@ bower install
 Afterwards, you can build like this:
 
 ```bash
-grunt --force
+grunt
 ```
-
-(The `force` switch is currently necessary because of some `jshint` warnings)
 
 You can generate the compressed files with
 
@@ -49,5 +47,5 @@ grunt docs
 For development, use `grunt watch` to build continuously (both documentation and code):
 
 ```bash
-grunt watch --force
+grunt watch
 ```

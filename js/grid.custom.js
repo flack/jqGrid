@@ -408,9 +408,10 @@ $.jgrid.extend({
 				if(this.hidden===true) { $(th).css("display","none");}
 				this.search = this.search === false ? false : true;
 				soptions = $.extend({},this.searchoptions || {});
+				var stbl;
 				if(this.search){
 					if(this.stype === undefined) {this.stype='text';}
-					var stbl = $("<div class='ui-search-box'><span class='ui-search-input'></span><span class='ui-search-clear'></span></div>");
+					stbl = $("<div class='ui-search-box'><span class='ui-search-input'></span><span class='ui-search-clear'></span></div>");
 					if(p.searchOperators && cm.edittype !== 'checkbox') {
 						so  = (soptions.sopt) ? soptions.sopt[0] : cm.stype==='select' ?  'eq' : p.defaultSearch;
 						for(i = 0;i<p.odata.length;i++) {
@@ -579,7 +580,7 @@ $.jgrid.extend({
 				}
 
 				$(tr).append(th);
-				if(!p.searchOperators) {
+				if(this.search && !p.searchOperators) {
 					$("span:eq(0)",stbl).hide();
 				}
 			});
