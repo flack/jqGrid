@@ -679,3 +679,10 @@ a.clearsearchclass {
   font-weight: bold;
   color: #000;
 }
+#downloadbuilder legend {
+  margin-bottom: 0;
+}
+#downloadbuilder fieldset {
+  margin-bottom: 5px;
+}
+}
