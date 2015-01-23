@@ -654,6 +654,8 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+.ui-search-toolbar .ui-search-input > select {
   width: 100%;
 }
 a.g-menu-item,

@@ -12,7 +12,7 @@
 */
 "use strict";
 $.extend($.jgrid,{
-// Modal functions
+        // Modal functions
 	showModal : function(h) {
 		h.w.show();
 	},
