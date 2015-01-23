@@ -5,9 +5,6 @@ section: Demos
 
 # Default Options + Remote Data
 
-<button type="button" id="buttonJSON">Get store1 invoices (JSON)</button>
-<button type="button" id="buttonXML">Get store2 invoices (XML)</button>
-
 ```javascript
 $(document).ready(function () {
     $("#grid").jqGrid({
@@ -20,15 +17,20 @@ $(document).ready(function () {
             { label: 'Tax', name: 'tax', width: 80 },
             { label: 'Total', name: 'total', width: 80 },
             { label: 'Notes', name: 'note', width: 150 }
-        ]
+        ],
+        pager: '#pager'
     });
 
-    $('button#buttonJSON').on('click', function(){
-	$('table#articles').jqGrid('setGridParam',{url: './data/basic.json'}).trigger('reloadGrid');
-    });
+    $('<button type="button" class="btn btn-default">Get JSON</button>')
+        .on('click', function(){
+            $('#grid').jqGrid('setGridParam',{url: './data/basic.json'}).trigger('reloadGrid');
+        })
+        .insertAfter($('#show-code'));
 
-    $('button#buttonXML').on('click', function(){
-	$('table#articles').jqGrid('setGridParam',{url: './data/basic.xml'}).trigger('reloadGrid');
-    });
+    $('<button type="button" class="btn btn-default">Get XML</button>')
+        .on('click', function(){
+            $('#grid').jqGrid('setGridParam',{url: './data/basic.xml'}).trigger('reloadGrid');
+        })
+        .insertAfter($('#show-code'));
 });
 ```
