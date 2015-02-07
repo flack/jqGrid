@@ -110,13 +110,13 @@ $.extend(true,$.jgrid,{
 			srcformat: 'Y-m-d',
 			newformat: 'd/m/Y',
 			masks : {
-				ShortDate: "n/j/Y",
-				LongDate: "l, F d, Y",
-				FullDateTime: "l, F d, Y g:i:s A",
-				MonthDay: "F d",
-				ShortTime: "g:i A",
-				LongTime: "g:i:s A",
-				YearMonth: "F, Y"
+				ShortDate: "j/n/Y",
+				LongDate: "l j n F Y",
+				FullDateTime: "l j n F Y H:i:s",
+				MonthDay: "j F",
+				ShortTime: "H:i",
+				LongTime: "H:i:s",
+				YearMonth: "F Y"
 			}
 		}
 	}

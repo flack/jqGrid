@@ -15,6 +15,15 @@ $(document).ready(function()
             .insertAfter($('#download-button'));
     }
 
+    function version()
+    {
+        return load_file(proxy_prefix + 'package.json')
+                .then(function(e){
+                    var r = JSON.parse(e);
+                    return r.version;
+                });
+    }
+
     function build_base()
     {
         button.button('compiling');
@@ -86,8 +95,8 @@ $(document).ready(function()
         {
             var zip = new JSZip();
 
-            zip.file("jsgrid-0.1.0-custom.min.js", preamble + "\n" + content);
-            zip.file("jsgrid-0.1.0-custom.js", preamble + "\n" + js);
+            zip.file('jsgrid-' + version() + '-custom.min.js', preamble + "\n" + content);
+            zip.file('jsgrid-' + version() + '-custom.js', preamble + "\n" + js);
             return zip;
         });
     }
@@ -103,17 +112,17 @@ $(document).ready(function()
         .fail(function(e)
         {
             report_error(e);
-        })
+        });
     }
 
     function build_css(zip)
     {
         button.button('css');
 
-        return load_file(proxy_prefix + 'dist/jsgrid-0.1.0.min.css')
+        return load_file(proxy_prefix + 'dist/jsgrid-' + version() + '.min.css')
             .then(function(e)
             {
-                zip.file("jsgrid-0.1.0.min.css", e);
+                zip.file('jsgrid-' + version() + '.min.css', e);
                 return zip;
             });
     }
