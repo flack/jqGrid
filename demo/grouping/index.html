@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>grid.js grouping demo</title>
+	<link rel="stylesheet" type="text/css" href="../../dist/grid.js-4.7.0.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/cupertino/jquery-ui.css"></link>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../../dist/grid.js-4.7.0.min.js"></script>
+	<script type="text/javascript" src="../../dist/i18n/grid.locale-en.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#grouping').jqGrid({
+				url:'./data.json',
+				datatype: 'json',
+				colNames: ['Grouping value', 'Grouping title', 'Display name', 'Value'],
+				colModel: [{name: 'groupingValue', hidden: true},
+				{name: 'title', hidden: true},
+				{name: 'displayName', hidden: true},
+				{name: 'value', width: 300}],
+				pager: '#groupingPager',
+				grouping: true,
+				groupingView: {
+					groupField: ['groupingValue'],
+					groupColumnShow:[false]
+				}
+			});
+		
+			$('#groupingDisplay').jqGrid({
+				url:'./data.json',
+				datatype: 'json',
+				colNames: ['Grouping value', 'Grouping title', 'Display name', 'Value'],
+				colModel: [{name: 'groupingValue', hidden: true},
+				{name: 'title', hidden: true},
+				{name: 'displayName', hidden: true},
+				{name: 'value', width: 300}],
+				pager: '#groupingDisplayPager',
+				grouping: true,
+				groupingView: {
+					groupField: ['groupingValue'],
+					displayField:['displayName'],
+					groupColumnShow:[false]
+				}
+			});
+			
+			$('#groupingTitle').jqGrid({
+				url:'./data.json',
+				datatype: 'json',
+				colNames: ['Grouping value', 'Grouping title', 'Display name', 'Value'],
+				colModel: [{name: 'groupingValue', hidden: true},
+				{name: 'title', hidden: true},
+				{name: 'displayName', hidden: true},
+				{name: 'value', width: 300}],
+				pager: '#groupingTitlePager',
+				grouping: true,
+				groupingView: {
+					groupField: ['groupingValue'],
+					displayField:['displayName'],
+					titleField:['title'],
+					groupColumnShow:[false]
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Grouping demo</h1>
+	<table id="grouping"></table>
+	<div id="groupingPager"></div>
+	
+	<h1>Grouping with display name demo</h1>
+	<table id="groupingDisplay"></table>
+	<div id="groupingDisplayPager"></div>
+	
+	<h1>Grouping with title demo</h1>
+	<table id="groupingTitle"></table>
+	<div id="groupingTitlePager"></div>
+</body>
+</html>
